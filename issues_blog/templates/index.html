@@ -1,0 +1,44 @@
+{% extends 'base.html' %}
+{% block body %}
+<div class="container">
+    <div class="logo">
+        <img src="{{ url_for('static', filename='images/logo.png') }}" alt="logo" width="100%">
+    </div>
+    <div class="form">
+        <form method="POST">
+            {{form.hidden_tag()}}
+            <div class="form-group">
+                {{form.email.label}}
+
+                {% if form.email.errors %}
+                    {{form.email(placeholder = "Email", class = "invalid-field")}}
+                    <div class="invalid-feedback">
+                        {% for error in form.email.errors %}
+                            <span>{{ error }}</span>
+                        {% endfor %}
+                    </div>
+                {% else %}
+                    {{form.email(placeholder = "Email")}}
+                {% endif %}
+            </div>
+            <div class="form-group">
+                {{form.password.label}}
+                
+                {% if form.password.errors %}
+                    {{form.password(placeholder = "Password", class = "invalid-field")}}
+                    <div class="invalid-feedback">
+                        {% for error in form.password.errors %}
+                            <span>{{ error }}</span>
+                        {% endfor %}
+                    </div>
+                {% else %}
+                    {{form.password(placeholder = "Password")}}
+                {% endif %}
+            </div>
+            {{form.submit()}}
+            <small><a href="#">Forgot Password?</a></small> 
+        </form>
+        <p><small>Don't have an account? <a href="{{ url_for('register') }}">Register</a></small></p>
+    </div>
+</div>
+{% endblock %}

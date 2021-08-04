@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+{% block body %}
+<div>
+    <div class="container">
+        <div class="form-report">
+            <form>
+                {{ form.hidden_tag() }}
+                <div class="form-group">
+                    {{ form.heading_field.label }}
+                    {{ form.heading_field() }}
+                </div>
+                <div class="form-group">
+                    {{ form.report_field.label }}
+                    {{ form.report_field() }}
+                </div>
+                {{ form.submit() }}
+            </form>
+        </div>
+    </div>
+</div>
+{% endblock %}

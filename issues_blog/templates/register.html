@@ -1,0 +1,72 @@
+{% extends 'base.html' %}
+{% block body %}
+<div class="container">
+    <div class="logo logo-register">
+        <img src="{{ url_for('static', filename='images/logo.png') }}" alt="logo" width="100%">
+    </div>
+    <div class="form register">
+        <form method="POST">
+            {{form.hidden_tag()}}
+            <div class="form-group">
+                {{form.firstname.label}}
+
+                {% if form.firstname.errors %}
+                    {{form.firstname(placeholder = "First Name", class = "invalid-field")}}
+                    <div class="invalid-feeback">
+                        {% for error in form.firstname.errors %}
+                            <span>{{ error }}</span>
+                        {% endfor %}
+                    </div>
+                {% else %}
+                    {{form.firstname(placeholder = "First Name")}}
+                {% endif %}
+            </div>
+            <div class="form-group">
+                {{form.email.label}}
+
+                {% if form.email.errors %}
+                    {{form.email(placeholder = "Email", class = "invalid-field")}}
+
+                    <div class="invalid-feeback">
+                        {% for error in form.email.errors %}
+                            <span>{{ error }}</span>
+                        {% endfor %}
+                    </div>
+                {% else %}
+                    {{form.email(placeholder = "Email")}}
+                {% endif %}
+            </div>
+            <div class="form-group">
+                {{form.password.label}}
+
+                {% if form.password.errors %}
+                    {{form.password(placeholder = "Password", class = "invalid-field")}}
+                    <div class="invalid-feeback">
+                        {% for error in form.password.errors %}
+                            <span>{{ error }}</span>
+                        {% endfor %}
+                    </div>
+                {% else %}
+                    {{form.password(placeholder = "Password")}}
+                {% endif %}
+            </div>
+            <div class="form-group">
+                {{form.confirm_password.label}}
+
+                {% if form.confirm_password.errors %}
+                    {{form.confirm_password(placeholder = "Confirm Password", class = "invalid-field")}}
+                    <div class="invalid-feeback">
+                        {% for error in form.confirm_password.errors %}
+                            <span>{{ error }}</span>
+                        {% endfor %}
+                    </div>
+                {% else %}
+                    {{form.confirm_password(placeholder = "Confirm Password")}}
+                {% endif %}
+            </div>
+            {{form.submit()}}
+        </form>
+        <p><small>Already have an account? <a href="{{ url_for('index') }}">Login</a></small></p>
+    </div>
+</div>
+{% endblock %}
