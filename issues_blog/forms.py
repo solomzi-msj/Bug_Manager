@@ -26,6 +26,6 @@ class LoginForm(FlaskForm):
     submit = SubmitField('Login')
 
 class ReportForm(FlaskForm):
-    heading_field = StringField('Issue Title', validators=[DataRequired()])
-    report_field = TextAreaField('Report Issue', validators=[DataRequired(), Email()])
+    title = StringField('Issue Title', validators=[DataRequired()])
+    content = TextAreaField('Report Issue', validators=[DataRequired()])
     submit = SubmitField('Submit')
