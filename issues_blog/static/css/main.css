@@ -173,6 +173,7 @@ textarea {
     margin: 20px 0;
     background-color: rgba(30, 115, 190, .4);
     border-radius: 20px;
+    overflow: auto;
 }
 
 .issue-box h1 {
@@ -181,17 +182,17 @@ textarea {
     color: #333;
 }
 
-.issue-box .details {
-    display: block;
+div.info {
+    float: left;
     width: 20%;
     padding: 10px;
-    margin: 10px 0;
+    margin: 10px 10px;
     border-radius: 10px;
     text-align: center;
-    background-color: #87c357;
+    background-color: #87c357
 }
 
-.issue-box .pending {
+.issue-box div.info.pending {
     background-color: #777;
     color: #fff;
 }

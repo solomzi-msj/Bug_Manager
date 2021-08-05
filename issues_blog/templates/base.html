@@ -15,10 +15,20 @@
             <h1>BUGReporter</h1>
             <ul>
                 {% if current_user.is_authenticated %}
-                    <li><a href="{{ url_for('logout') }}" class="logout"><i class="fas fa-power-off"></i></a></li>
-                    <li><a href="{{ url_for('home') }}">Home</a></li>
-                    <li><a href="{{ url_for('issues') }}">Issues</a></li>
-                    <li><a href="{{ url_for('report') }}">Report issue</a></li>
+                    <li>
+                        <a href="{{ url_for('logout') }}" class="logout" title="logout">
+                            <i class="fas fa-power-off"></i>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="{{ url_for('home') }}">Home</a>
+                    </li>
+                    <li>
+                        <a href="{{ url_for('issues') }}">Issues</a>
+                    </li>
+                    <li>
+                        <a href="{{ url_for('report') }}">Report issue</a>
+                    </li>
                 {% else %}
                     <li><a href="{{ url_for('index') }}">Login</a></li>
                     <li><a href="{{ url_for('register') }}">Register</a></li>

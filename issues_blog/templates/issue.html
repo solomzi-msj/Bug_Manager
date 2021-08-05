@@ -1,11 +1,8 @@
 {% extends 'base.html' %}
 {% block body %}
     <div class="container">
-        {% for issue in issues %}
         <div class="issue-box">
-            <h1>
-                <a href="{{ url_for('issue', issue_id = issue.id) }}">{{ issue.title }}</a>
-            </h1>
+            <h1>{{ issue.title }}</h1>
             <p>{{ issue.content }}</p>
             <div class="info {{ issue.status|lower }}">
                 <p>
@@ -22,8 +19,15 @@
                     <small class = "details">posted by <strong>{{ issue.author.firstname }}</strong></small>
                 </p>
             </div>
-            
+            {% if issue.author == current_user %}
+                <div class="info">
+                    <p>
+                        <a href="{{ url_for('update_issue', issue_id = issue.id) }}">
+                            <strong>Update</strong>
+                        </a>
+                    </p>
+                </div>
+            {% endif %}
         </div>
-        {% endfor %}
     </div>
 {% endblock %}
