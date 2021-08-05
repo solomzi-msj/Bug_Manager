@@ -23,6 +23,7 @@ class Issue(db.Model):
     id = db.Column(db.Integer, primary_key = True)
     title = db.Column(db.String(60), nullable = False)
     content = db.Column(db.Text, nullable = False)
+    status = db.Column(db.String(20), nullable = False, default = 'Pending')
     date_created = db.Column(db.DateTime, nullable = False, default = datetime.utcnow)
     user_id = db.Column(db.Integer, db.ForeignKey('users.id'), nullable = False)
 
