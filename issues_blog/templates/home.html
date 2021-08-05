@@ -5,10 +5,10 @@
         <h1>Welcome {{ current_user.firstname }}</h1>
         <div class="actions">
             <div class="box report">
-                <h2><a href="#">Report Issue</a></h2>
+                <h2><a href="{{ url_for('report') }}">Report Issue</a></h2>
             </div>
             <div class="box common">
-                <h2><a href="#">Common Issues</a></h2>
+                <h2><a href="{{ url_for('issues') }}">Common Issues</a></h2>
             </div>
         </div>
     </div>
