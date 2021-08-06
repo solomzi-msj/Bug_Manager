@@ -4,30 +4,32 @@
         <div class="issue-box">
             <h1>{{ issue.title }}</h1>
             <p>{{ issue.content }}</p>
-            <div class="info {{ issue.status|lower }}">
-                <p>
-                    <small class = "details">{{ issue.status }}</small>
-                </p>
-            </div>
-            <div class="info">
-                <p>
-                    <small class = "details">{{ issue.date_created.strftime('%Y-%m-%d') }}</small>
-                </p>
-            </div>
-            <div class="info">
-                <p>
-                    <small class = "details">posted by <strong>{{ issue.author.firstname }}</strong></small>
-                </p>
-            </div>
-            {% if issue.author == current_user %}
-                <div class="info">
+            <div class="details">
+                <div class="info {{ issue.status|lower }}">
                     <p>
-                        <a href="{{ url_for('update_issue', issue_id = issue.id) }}">
-                            <strong>Update</strong>
-                        </a>
+                        <small class = "details">{{ issue.status }}</small>
                     </p>
                 </div>
-            {% endif %}
+                <div class="info">
+                    <p>
+                        <small class = "details">{{ issue.date_created.strftime('%Y-%m-%d') }}</small>
+                    </p>
+                </div>
+                <div class="info">
+                    <p>
+                        <small class = "details">posted by <strong>{{ issue.author.firstname }}</strong></small>
+                    </p>
+                </div>
+                {% if issue.author == current_user %}
+                    <div class="info">
+                        <p>
+                            <a href="{{ url_for('update_issue', issue_id = issue.id) }}">
+                                <strong>Update</strong>
+                            </a>
+                        </p>
+                    </div>
+                {% endif %}
+            </div>
         </div>
     </div>
 {% endblock %}
