@@ -23,22 +23,25 @@ header {
     background-color: #1e73be;
 }
 
+header nav.container {
+    display: flex;
+}
+
+header nav.container ul {
+    margin-left: auto;
+}
+
 header nav h1 {
     margin: 0 !important;
     font-size: 22px !important;
     color: #fff;
-    float: left;
     padding-top: 10px;
-    padding-bottom: 0 !important;
 }
 
 header nav ul {
     list-style: none;
-    float: right;
-}
-
-header nav ul li {
-    float: left;
+    display: flex;
+    justify-content: space-between;
 }
 
 header nav ul li a {
@@ -155,17 +158,19 @@ textarea {
     width: 300px;
     height: 200px;
     padding-top: 75px;
-    margin-top: 40px;
+    margin: 40px;
     background-color: rgba(30, 115, 190, .7);
 }
 
-.box.report {
-    float: left;
-    margin-left: 250px;
+div.home.container div.actions {
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
-.box.common  {
-    float: right;
-    margin-right: 250px;
+
+div.issue-box div.details {
+    display: flex;
+    justify-content: space-between;
 }
 
 .issue-box {
@@ -183,7 +188,6 @@ textarea {
 }
 
 div.info {
-    float: left;
     width: 20%;
     padding: 10px;
     margin: 10px 10px;

@@ -1,13 +1,13 @@
 {% extends 'base.html' %}
 {% block body %}
 <div class="content">
-    <div class="container">
+    <div class="home container">
         <h1>Welcome {{ current_user.firstname }}</h1>
         <div class="actions">
-            <div class="box report">
+            <div class="box">
                 <h2><a href="{{ url_for('report') }}">Report Issue</a></h2>
             </div>
-            <div class="box common">
+            <div class="box">
                 <h2><a href="{{ url_for('issues') }}">Common Issues</a></h2>
             </div>
         </div>
