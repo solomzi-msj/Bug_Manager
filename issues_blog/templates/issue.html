@@ -17,7 +17,11 @@
                 </div>
                 <div class="info">
                     <p>
-                        <small class = "details">posted by <strong>{{ issue.author.firstname }}</strong></small>
+                        <a href="{{ url_for('user_issues', firstname = issue.author.firstname) }}">
+                            <small class = "details">
+                                posted by <strong>{{ issue.author.firstname }}</strong>
+                            </small>
+                        </a>
                     </p>
                 </div>
                 {% if issue.author == current_user %}

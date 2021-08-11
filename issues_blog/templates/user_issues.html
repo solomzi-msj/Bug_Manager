@@ -1,6 +1,7 @@
 {% extends 'base.html' %}
 {% block body %}
     <div class="container">
+        <h1>Issues by {{ user.firstname }} ({{ issues.total }})</h1>
         {% for issue in issues.items %}
         <div class="issue-box">
             <h1>
@@ -34,9 +35,11 @@
             {% for page_num in issues.iter_pages(left_edge=1, right_edge=1, left_current=1, right_current=2) %}
                 {% if page_num %}
                     {% if issues.page == page_num %}
-                        <a href="{{ url_for('issues', page = page_num) }}" class="page_num link_active">{{ page_num }}</a>
+                        <a href="{{ url_for('user_issues', firstname = user.firstname, page = page_num) }}" class="page_num link_active">
+                            {{ page_num }}
+                        </a>
                     {% else %}
-                        <a href="{{ url_for('issues', page = page_num) }}" class="page_num">{{ page_num }}</a>
+                        <a href="{{ url_for('user_issues', firstname = user.firstname, page = page_num) }}" class="page_num">{{ page_num }}</a>
                     {% endif %}
                 {% else %}
                     ...

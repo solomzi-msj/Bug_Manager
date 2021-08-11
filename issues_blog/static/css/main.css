@@ -19,6 +19,27 @@ a {
     color: #fff;
 }
 
+a.page_num {
+    display: inline-block;
+    color: #333;
+    padding: 10px;
+    margin: 10px;
+}
+
+a.page_num:hover {
+    background-color: #87c357;
+}
+
+a.link_active {
+    background-color: #87c357;
+}
+
+div.links {
+    width: 80%;
+    margin: auto;
+    text-align: center;
+}
+
 header {
     background-color: #1e73be;
 }

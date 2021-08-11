@@ -84,8 +84,18 @@ def update_issue(issue_id):
 @app.route('/issues')
 @login_required
 def issues():
-    issues = Issue.query.order_by(Issue.date_created.desc()).all()
+    page = request.args.get('page', 1, type = int)
+    issues = Issue.query.order_by(Issue.date_created.desc()).paginate(page = page, per_page = 3)
     return render_template('issues.html', issues = issues)
+
+@app.route('/user/<firstname>')
+def user_issues(firstname):
+    page = request.args.get('page', 1, type = int)
+    user = User.query.filter_by(firstname = firstname).first_or_404()
+    issues = Issue.query.filter_by(author = user)\
+            .order_by(Issue.date_created.desc())\
+            .paginate(page = page, per_page = 5)
+    return render_template('user_issues.html', issues = issues, user = user)
 
 @app.route('/logout')
 @login_required
